@@ -1,0 +1,46 @@
+<idea-plugin>
+    <id>ru.itis</id>
+    <name>YC Assistant</name>
+    <version>1.0</version>
+    <description><![CDATA[
+      Plugin made to manage Yandex Cloud services
+      ]]></description>
+
+    <change-notes><![CDATA[
+      Initial Release.
+      ]]>
+    </change-notes>
+
+    <vendor email="aznfashutdinov@stud.kpfu.ru">Azat Faskhutdinov</vendor>
+
+    <depends>com.intellij</depends>
+    <project-components>
+        <component>
+            <implementation-class>stub.HolyProjectProcessesManager</implementation-class>
+        </component>
+    </project-components>
+
+    <actions>
+        <action id="HolyProject.ExpandAll" class="ui.ProcessesTreeAction$ExpandAll" text="Expand All"
+                icon="AllIcons.Actions.Expandall"/>
+        <action id="HolyProject.CollapseAll" class="ui.ProcessesTreeAction$CollapseAll" text="Collapse All"
+                icon="AllIcons.Actions.Collapseall"/>
+
+        <action class="actions.MyToggleAction" id="HolyProject.MyToggleAction" icon="AllIcons.Nodes.Cvs_roots"
+                text="MyToggleAction" description="MyToggleAction"/>
+        <action class="actions.CommonAction" id="HolyProject.CommonAction" icon="AllIcons.ToolbarDecorator.Import"
+                text="CommonAction" description="CommonAction"/>
+        <group id="HolyProject.ProcessesToolbar">
+            <reference id="HolyProject.MyToggleAction"/>
+            <reference id="HolyProject.CommonAction"/>
+            <separator/>
+            <reference id="HolyProject.ExpandAll"/>
+            <reference id="HolyProject.CollapseAll"/>
+        </group>
+    </actions>
+    <extensions defaultExtensionNs="com.intellij">
+        <notificationGroup id="Custom Notification Group"
+                           displayType="BALLOON"
+                           key="notification.group.name"/>
+    </extensions>
+</idea-plugin>
